@@ -1,0 +1,674 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --cream: #FFF8ED;
+  --saffron: #E99A35;
+  --brown: #784B30;
+  --gold: #D7AC5B;
+  --white: #FFFFFF;
+  --peach: #FFF0DC;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(160deg, #FFF8ED, #FFF0DC);
+  color: var(--brown);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--brown);
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(100% - 32px, 760px);
+  margin: auto;
+  padding: 30px 0 20px;
+}
+
+/* HEADER */
+
+.header {
+  text-align: center;
+}
+
+.blessing {
+  font-family: 'Noto Serif Devanagari', serif;
+  color: var(--saffron);
+  font-size: 17px;
+  margin-bottom: 18px;
+}
+
+.brand {
+  position: relative;
+  padding: 12px 0;
+}
+
+.brand h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 6vw, 52px);
+  margin: 0;
+  color: var(--brown);
+}
+
+.brand p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 10px;
+  color: #987358;
+}
+
+.krishna-art {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+/* LANGUAGE BUTTONS */
+
+.languages {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.languages button {
+  background: var(--white);
+  color: var(--brown);
+  border: 1px solid #EAD6BA;
+  border-radius: 25px;
+  padding: 10px 18px;
+}
+
+.languages button:hover,
+.languages button.active,
+.languages button[aria-pressed="true"] {
+  background: var(--saffron);
+  color: white;
+  border-color: var(--saffron);
+}
+
+/* MAIN MESSAGE CARD */
+
+.message-card {
+  background: var(--white);
+  border: 1px solid #EED8B2;
+  border-radius: 22px;
+  padding: 38px;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(120, 75, 48, 0.08);
+  animation: fadeIn 0.5s ease;
+}
+
+.scripture-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--saffron);
+  font-size: 23px;
+  margin: 0 0 12px;
+}
+
+#reference {
+  font-size: 13px;
+  color: #96745B;
+  letter-spacing: 1px;
+}
+
+.sanskrit {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(18px, 3vw, 23px);
+  line-height: 2;
+  margin: 28px 0;
+  padding: 22px 12px;
+  background: #FFFAF2;
+  border-radius: 14px;
+  white-space: pre-line;
+}
+
+.message-card h2 {
+  font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
+  font-size: 19px;
+  color: var(--saffron);
+  margin-top: 28px;
+}
+
+#meaning,
+#reflection {
+  font-size: 15px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+#reflection {
+  font-style: italic;
+  background: var(--peach);
+  padding: 18px;
+  border-radius: 12px;
+}
+
+/* ACTION BUTTONS */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 26px 0;
+}
+
+.actions button,
+#toggle-favorites {
+  border: 1px solid var(--gold);
+  background: white;
+  color: var(--brown);
+  border-radius: 30px;
+  padding: 12px 18px;
+  transition: 0.2s ease;
+}
+
+.actions button:hover,
+#toggle-favorites:hover {
+  transform: translateY(-2px);
+  background: var(--peach);
+}
+
+#next {
+  background: var(--saffron);
+  color: white;
+  border-color: var(--saffron);
+  font-weight: 600;
+}
+
+#next:hover {
+  background: #D98920;
+}
+
+.favorites-controls {
+  text-align: center;
+}
+
+#favorites-panel {
+  margin-top: 22px;
+  padding: 24px;
+  background: white;
+  border-radius: 18px;
+  border: 1px solid #EED8B2;
+}
+
+#favorites-panel[hidden] {
+  display: none;
+}
+
+#favorites-panel h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+#favorites-list > * {
+  padding: 12px 0;
+  border-bottom: 1px solid #F0E1CD;
+}
+
+#favorites-list button {
+  margin: 8px;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  padding: 8px 14px;
+  background: var(--cream);
+  color: var(--brown);
+}
+
+#status {
+  text-align: center;
+  min-height: 22px;
+  color: var(--brown);
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 28px 12px;
+  font-size: 13px;
+  color: #9B795E;
+  line-height: 1.8;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 24px, 760px);
+    padding-top: 18px;
+  }
+
+  .brand h1 {
+    font-size: 36px;
+  }
+
+  .krishna-art {
+    font-size: 30px;
+  }
+
+  .message-card {
+    padding: 24px 17px;
+    border-radius: 18px;
+  }
+
+  .sanskrit {
+    padding: 16px 8px;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .actions button {
+    padding: 12px 8px;
+    font-size: 13px;
+  }
+
+  #next {
+    grid-column: 1 / -1;
+  }
+
+  .languages button {
+    padding: 9px 13px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 350px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  #next {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
+/* PHASE 6 — KRISHNA ILLUSTRATION */
+
+.krishna-art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.krishna-image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 24px;
+  mix-blend-mode: multiply;
+  transition: transform 0.3s ease;
+}
+
+.krishna-image:hover {
+  transform: scale(1.04);
+}
+
+/* Elegant heading refinement */
+
+.brand h1 {
+  letter-spacing: 0.5px;
+}
+
+.message-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+  box-shadow: 0 15px 40px rgba(120, 75, 48, 0.11);
+}
+
+/* Small gold divider above footer */
+
+footer::before {
+  content: "✦ 🪷 ✦";
+  display: block;
+  color: #D7AC5B;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .krishna-image {
+    width: 95px;
+    height: 95px;
+  }
+
+  .krishna-art {
+    margin-bottom: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .krishna-image {
+    transition: none;
+  }
+
+  .krishna-image:hover {
+    transform: none;
+  }
+}
+
+
+
+/* PHASE 6 — FINAL READABILITY IMPROVEMENTS */
+
+.container {
+  padding-top: 16px;
+}
+
+.blessing {
+  margin-bottom: 8px;
+}
+
+.brand {
+  padding: 5px 0;
+}
+
+.brand p {
+  margin-top: 6px;
+}
+
+.languages {
+  margin: 18px 0;
+}
+
+.message-card {
+  padding: 32px;
+}
+
+.sanskrit {
+  font-size: clamp(20px, 2.5vw, 25px);
+  line-height: 2;
+}
+
+#meaning,
+#reflection {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+@media (max-width: 600px) {
+  .message-card {
+    padding: 24px 17px;
+  }
+
+  #meaning,
+  #reflection {
+    font-size: 15px;
+  }
+}
+
+/* MOBILE FINAL POLISH */
+
+@media (max-width: 600px) {
+
+  .message-card {
+    padding: 22px 16px;
+  }
+
+  .sanskrit {
+    margin: 20px 0;
+    padding: 16px 10px;
+    line-height: 1.8;
+  }
+
+  .message-card h2 {
+    font-size: 17px;
+    margin-top: 22px;
+  }
+
+  #meaning,
+  #reflection {
+    line-height: 1.75;
+  }
+
+  #reflection {
+    padding: 14px;
+  }
+
+  .brand h1 {
+    font-size: 34px;
+  }
+
+  .languages {
+    margin: 16px 0;
+  }
+}
+
+
+/* ABOUT PAGE */
+
+.about-content {
+  text-align: left;
+}
+
+.about-content h2 {
+  color: #784B30;
+  font-size: 21px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 16px;
+  color: #624B3B;
+}
+
+.page-link {
+  display: inline-block;
+  background: #E99A35;
+  color: white;
+  padding: 13px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.page-link:hover {
+  background: #C77F22;
+}
+
+@media (max-width: 600px) {
+  .about-content h2 {
+    font-size: 19px;
+  }
+
+  .about-content p {
+    font-size: 15px;
+  }
+}
+
+
+
+/* CONTACT PAGE */
+
+.contact-email {
+  display: inline-block;
+  color: #B87524;
+  font-weight: 600;
+  font-size: 17px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+.contact-email:hover {
+  color: #784B30;
+}
+
+.contact-note {
+  font-size: 14px !important;
+  color: #92765F !important;
+}
+
+
+/* SCRIPTURE SOURCES PAGE */
+
+.source-list {
+  padding-left: 24px;
+  margin: 20px 0;
+}
+
+.source-list li {
+  margin-bottom: 24px;
+  line-height: 1.8;
+  color: #784B30;
+}
+
+.source-list li strong {
+  font-size: 17px;
+}
+
+.source-list li p {
+  margin: 6px 0;
+}
+
+.source-list a,
+.about-content a:not(.page-link) {
+  color: #B87524;
+  font-weight: 600;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+.source-list a:hover,
+.about-content a:hover {
+  color: #784B30;
+}
+
+@media (max-width: 600px) {
+  .source-list {
+    padding-left: 18px;
+  }
+
+  .source-list li strong {
+    font-size: 16px;
+  }
+}
+
+
+
+/* PHASE 7.4 — FOOTER NAVIGATION */
+
+.site-footer {
+  text-align: center;
+  padding: 30px 12px 22px;
+  margin-top: 35px;
+}
+
+.footer-divider {
+  color: #D7AC5B;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.site-footer::before {
+  display: none;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin: 25px auto;
+}
+
+.footer-links a {
+  color: #784B30;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #E99A35;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-links a:focus-visible {
+  outline: 2px solid #E99A35;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+.footer-brand {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.footer-credit {
+  font-size: 12px;
+  color: #9B816D;
+  margin-top: 8px;
+}
+
+/* MOBILE FOOTER */
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 25px 8px 18px;
+  }
+
+  .footer-links {
+    gap: 12px 16px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+}
+
