@@ -149,9 +149,21 @@ function getNextMessage() {
 
   queue = queue.filter(id => ids.includes(id));
 
-  if (queue.length === 0) {
-    queue = shuffle(ids);
-  }
+  
+if (queue.length === 0) {
+  queue = shuffle(ids);
+}
+
+// If the queue contains only the previous verse,
+// rebuild the cycle to avoid an immediate repeat.
+if (
+  ids.length > 1 &&
+  queue.length === 1 &&
+  queue[0] === lastId
+) {
+  queue = shuffle(ids.filter(id => id !== lastId));
+}
+
 
   if (queue.length > 1 && queue[0] === lastId) {
     const alternative = queue.findIndex(id => id !== lastId);
